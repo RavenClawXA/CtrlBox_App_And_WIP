@@ -32,10 +32,7 @@ public class SelectActivity extends AppCompatActivity {
         btn_wip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(SelectActivity.this,WipActivity.class);
-                startActivity(intent1);
-
-                Intent senderIntent = new Intent(getApplicationContext(), WipActivity.class);
+                Intent senderIntent = new Intent(SelectActivity.this, WipActivity.class);
                 senderIntent.putExtra("USERNAME",Username);
                 startActivity(senderIntent);
             }

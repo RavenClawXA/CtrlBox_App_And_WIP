@@ -1,16 +1,18 @@
 package com.example.ctrlbox_app;
 
-import com.google.firebase.crashlytics.buildtools.Obfuscator;
-
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface RetrofitAPI {
 
@@ -49,7 +51,7 @@ public interface RetrofitAPI {
         Call<List<Datamodels>> updateBoxTrans(@Path("id") String BoxId, @Body Datamodels datamodels);
 
         @POST("BoxTrans/add")
-        Call    <Datamodels> addBoxTrans(@Body Datamodels datamodels);
+        Call<Datamodels> addBoxTrans(@Body Datamodels datamodels);
 
         //-----------BoxCtrl--------------------//
         @GET("BoxCtrl")
@@ -59,7 +61,7 @@ public interface RetrofitAPI {
 
         //-----------LogBox-----------------//
         @POST("LogBox/add")
-        Call<Datamodels> addLogBox(@Body Datamodels datamodels);
+        Call<Datamodels_Logbox> addLogBox(@Body Datamodels_Logbox datamodels_logbox);
 
         @GET("LogBox/get/{id}")
        Call<List<Datamodels>> getLogById(@Path("id") String BoxId);
@@ -80,5 +82,14 @@ public interface RetrofitAPI {
         Call<Datamodels_Wip> PostDataWip(@Body Datamodels_Wip datamodels_wip);
 
         @GET("scanwip/get/picture/{id}")
-        Call<List<Datamodels_Item>> GetPicture(@Path("id") String item);
+        Call<List<ApiResponse>> GetPicture(@Path("id") String item);
+
+        @Multipart
+        @POST("scanwip/upload")
+        Call<ResponseBody> uploadPicture(
+                @Part MultipartBody.Part file,
+                @Part("job") RequestBody job,
+                @Part("item") RequestBody item,
+                @Part("quantity") RequestBody quantity,
+                @Part("recipient") RequestBody recipient);
 }

@@ -118,9 +118,9 @@ public class SendActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         status.setText("Out");
                         date.setText(datetime);
-                        Log.d("SendActiviy", "logid 1" + boxid);
+                        Log.d("SendActiviy", "logid 1" + datetime);
                         //updateBoxTrans(boxid,textVendor.getText().toString(),"-",spn_event.getSelectedItem().toString(),date.getText().toString(),status.getText().toString());
-                        addLogBox(boxid, "-", spn_event.getSelectedItem().toString(), date.getText().toString(), status.getText().toString());
+                        addLogBox(boxid, "-", spn_event.getSelectedItem().toString(), status.getText().toString());
                         btn_out.setVisibility(View.INVISIBLE);
                     }
 
@@ -142,18 +142,18 @@ public class SendActivity extends AppCompatActivity {
                         });
                     }*/
 
-                    public void addLogBox(String BoxId, String From, String To, String TransDate, String TransType) {
-                        Datamodels datamodels = new Datamodels(BoxId, "CYF", To, TransDate, TransType);
-                        Call<Datamodels> call6 = retrofitAPI.addLogBox(datamodels);
+                    public void addLogBox(String BoxId, String From, String To, String TransType) {
+                        Datamodels_Logbox datamodels_logbox = new Datamodels_Logbox(BoxId, "CYF", To, TransType);
+                        Call<Datamodels_Logbox> call6 = retrofitAPI.addLogBox(datamodels_logbox);
 
-                        call6.enqueue(new Callback<Datamodels>() {
+                        call6.enqueue(new Callback<Datamodels_Logbox>() {
                             @Override
-                            public void onResponse(@NonNull Call<Datamodels> call, @NonNull Response<Datamodels> response) {
+                            public void onResponse(@NonNull Call<Datamodels_Logbox> call, @NonNull Response<Datamodels_Logbox> response) {
                                 txt_result_add_log.setText("AddLogBox success"); // ประกาศข้างบนยังอ่ะ
                             }
 
                             @Override
-                            public void onFailure(@NonNull Call<Datamodels> call, @NonNull Throwable t) {
+                            public void onFailure(@NonNull Call<Datamodels_Logbox> call, @NonNull Throwable t) {
                                 txt_result_add_log.setText("AddLogBox error: " + t.getMessage());
                             }
                         });

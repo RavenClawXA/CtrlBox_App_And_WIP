@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E9DAD0"
     tools:context=".LoginActivity">
 
     <TextView
@@ -74,9 +75,20 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="173dp"
         android:layout_marginBottom="201dp"
-        android:text="result :"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="511dp"
+        app:srcCompat="@drawable/cyf_logo_removebg_preview" />
 
 </RelativeLayout>

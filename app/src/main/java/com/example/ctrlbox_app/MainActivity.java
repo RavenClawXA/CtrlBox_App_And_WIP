@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         btn_out.setVisibility(View.INVISIBLE);
                     } else {
                         Log.d("", "Logcess52 " + "0");
-                                Toast.makeText(MainActivity.this, "Box data is empty Reject", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Box data is empty Reject", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, ScanActivity.class);
                         startActivity(intent);
                         finish();
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                     txt_date.setText(datetime);
                    //updateBoxTrans(txt_boxid.getText().toString(),textTo.getText().toString(),textVendor.getText().toString(),"-",txt_date.getText().toString(),txt_status.getText().toString());
                     Log.d("Mainactivity","text"+textTo.getText()+textVendor.getText());
-                    addLogBox(txt_boxid.getText().toString(),textVendor.getText().toString(),textTo.getText().toString(),txt_date.getText().toString(),txt_status.getText().toString());
+                    addLogBox(txt_boxid.getText().toString(),textVendor.getText().toString(),textTo.getText().toString(),txt_status.getText().toString());
                     btn_in.setVisibility(View.INVISIBLE);
             }
         });
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
             txt_date.setText(datetime);
             textTo.setText("CYF");
             addBoxCtrl(txt_boxid.getText().toString(),"CYF","CYF");
-            addLogBox(txt_boxid.getText().toString(),"CYF","CYF", txt_date.getText().toString(),"In");
+            addLogBox(txt_boxid.getText().toString(),"CYF","CYF","In");
             btn_add.setVisibility(View.INVISIBLE);
            btn_out.setVisibility(View.VISIBLE);
         });
@@ -272,19 +272,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void  addLogBox(String BoxId,  String GetFrom, String SendTo, String TransDate, String TransType){
-        Datamodels datamodels = new Datamodels(BoxId, GetFrom, SendTo, TransDate, TransType);
-        Call<Datamodels> call6 = retrofitAPI.addLogBox(datamodels);
-        call6.enqueue(new Callback<Datamodels>() {
+    public void  addLogBox(String BoxId,  String GetFrom, String SendTo, String TransType){
+        Datamodels_Logbox datamodels_logbox = new Datamodels_Logbox(BoxId, GetFrom, SendTo, TransType);
+        Call<Datamodels_Logbox> call6 = retrofitAPI.addLogBox(datamodels_logbox);
+        call6.enqueue(new Callback<Datamodels_Logbox>() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onResponse(Call<Datamodels> call, Response<Datamodels> response) {
+            public void onResponse(Call<Datamodels_Logbox> call, Response<Datamodels_Logbox> response) {
                 txt_result_add_log.setText("AddLogBox success");
             }
 
             @SuppressLint("SetTextI18n")
             @Override
-            public void onFailure(@NonNull Call<Datamodels> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<Datamodels_Logbox> call, @NonNull Throwable t) {
                 txt_result_add_log.setText("AddLogBox error: " + t.getMessage());
             }
         });

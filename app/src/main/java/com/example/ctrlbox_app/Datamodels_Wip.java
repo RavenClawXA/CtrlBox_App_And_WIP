@@ -1,17 +1,22 @@
 package com.example.ctrlbox_app;
 
+import android.util.Base64;
+
+import com.google.zxing.BinaryBitmap;
+
+import java.util.List;
+
 public class Datamodels_Wip {
     private String Job;
     private String Item;
     private String Quantity;
-    private String RecipientName;
-    //private String Image;
+    private String Recipient;
 
-    public Datamodels_Wip(String Job, String Item, String Quantity, String RecipientName){
+    public Datamodels_Wip(String Job, String Item, String Quantity, String Recipient ){
         this.Job = Job;
         this.Item = Item;
         this.Quantity = Quantity;
-        this.RecipientName = RecipientName;
+        this.Recipient = Recipient;
     }
 
     public String getJob() {
@@ -38,11 +43,13 @@ public class Datamodels_Wip {
         Quantity = quantity;
     }
 
-    public String getRecipientName() {
-        return RecipientName;
+    public String getRecipient() {
+        return Recipient;
     }
 
-    public void setRecipientName(String recipientName) {
-        RecipientName = recipientName;
+    public void setRecipient(String recipient) {
+        Recipient = recipient;
     }
+
+
 }

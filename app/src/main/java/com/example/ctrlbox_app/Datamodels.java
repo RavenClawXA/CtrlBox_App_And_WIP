@@ -12,7 +12,6 @@ public class Datamodels {
 
         //String object =  "{\"BoxId\":\"1222\",\"Vendor\",\"VendorName\",\"Trandate\"}";
         this.BoxId = BoxId;
-
         this.GetFrom = GetFrom;
         this.SendTo = SendTo;
         this.TransDate = TransDate;
