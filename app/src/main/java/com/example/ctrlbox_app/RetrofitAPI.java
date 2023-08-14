@@ -56,6 +56,8 @@ public interface RetrofitAPI {
         //-----------BoxCtrl--------------------//
         @GET("BoxCtrl")
         Call<List<Datamodels_BoxCtrl>> getBoxCtrl ();
+        @GET("BoxCtrl/get/{id}")
+        Call<List<Datamodels_BoxCtrl>>getBoxowner(@Path("id") String BoxId);
         @POST("BoxCtrl/add")
         Call<Datamodels_BoxCtrl> addBoxCtrl(@Body Datamodels_BoxCtrl datamodels_boxCtrl);
 
