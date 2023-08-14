@@ -99,7 +99,6 @@
             android:text="@string/FromVendor"
             android:textColor="#37474F"
             android:textSize="15sp" />
-
         <TextView
             android:id="@+id/textVendor"
             android:layout_width="wrap_content"
@@ -107,8 +106,17 @@
             android:layout_marginStart="20sp"
             android:layout_marginTop="17dp"
             android:layout_toEndOf="@+id/viewVendor"
-            android:text=""
+            android:textColor="#37474F"
             android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/spinner_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@id/viewVendor"
+            android:minHeight="48dp"
+            android:text="" />
 
         <TextView
             android:id="@+id/sendto"
@@ -263,6 +271,14 @@
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
             android:text="ส่งออก" />
+
+        <Button
+            android:id="@+id/btn_pur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:text="ส่งไป'PUR'" />
 
         <Button
             android:id="@+id/Backbtn"

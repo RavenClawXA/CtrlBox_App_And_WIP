@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.SplittableRandom;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,7 +66,7 @@ public class SendActivity extends AppCompatActivity {
         String boxid = rec.getStringExtra("num_BoxId");
         String vendor = rec.getStringExtra("Vendor");
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http:/49.0.65.4:3002/ctrl/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -92,6 +93,9 @@ public class SendActivity extends AppCompatActivity {
                 textVendor.setText(vendor);
                 event.setText("Sendto :");
 
+                if(vendor.equals("รอนำส่ง")){
+                    textVendor.setText("PUR");
+                }
                 backbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -143,7 +147,7 @@ public class SendActivity extends AppCompatActivity {
                     }*/
 
                     public void addLogBox(String BoxId, String From, String To, String TransType) {
-                        Datamodels_Logbox datamodels_logbox = new Datamodels_Logbox(BoxId, "CYF", To, TransType);
+                        Datamodels_Logbox datamodels_logbox = new Datamodels_Logbox(BoxId, "PUR", To, TransType);
                         Call<Datamodels_Logbox> call6 = retrofitAPI.addLogBox(datamodels_logbox);
 
                         call6.enqueue(new Callback<Datamodels_Logbox>() {
