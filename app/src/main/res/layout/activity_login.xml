@@ -1,47 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E9DAD0"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/cyf_logo_removebg_preview" >
+    </ImageView>
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center">
+
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="270dp"
-        android:layout_marginBottom="480dp"
+        android:layout_marginTop="10dp"
         android:text="Username :"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="@dimen/_16sdp"
+        ></TextView>
 
     <TextView
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="270dp"
-        android:layout_marginBottom="420dp"
+        android:layout_marginTop="55sp"
         android:text="Password :"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="@dimen/_16sdp"
+        />
 
     <EditText
         android:id="@+id/txt_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="470dp"
+        android:layout_marginLeft="5dp"
         android:ems="11"
+        android:layout_toEndOf="@id/username"
         android:hint="Please enter your user"
         android:inputType="textPersonName" />
 
@@ -49,46 +59,44 @@
         android:id="@+id/txt_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="410dp"
+        android:layout_toEndOf="@id/password"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
         android:ems="11"
         android:inputType="textPassword"
-        android:hint="Please enter your password "/>
+        android:hint="Please enter your password"/>
 
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
     <Button
         android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_12sdp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="Login"
+        android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="320dp"
-        android:text="Login" />
+        android:layout_gravity="center">
 
     <TextView
         android:id="@+id/txt_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="173dp"
-        android:layout_marginBottom="201dp"
+        android:textColor="@color/black"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+         />
+</LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="65dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="511dp"
-        app:srcCompat="@drawable/cyf_logo_removebg_preview" />
 
-</RelativeLayout>
+</LinearLayout>
