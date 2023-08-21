@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         btn_pur = findViewById(R.id.btn_pur);
         btn_pur.setBackground(getDrawable(R.drawable.button_color));
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://49.0.65.4:3002/ctrl/")
+        //Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -91,11 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(@NonNull Call<List<Datamodels>> call, @NonNull Response<List<Datamodels>> response) {
-                if (!response.isSuccessful()) {
-                    txt_result_add.setText("Code " + response.code());
-                    return;
 
-                }
                 List<Datamodels> datamodels = response.body();
 
                 //Datamodels foundDatamodel = null ;
@@ -197,10 +194,12 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("Mainactivity", "logcount" + count);
                     int pattern = 25;
                     //  boolean match = check.matches(" [A-Za-z]{3}\\d{6}-\\d{3}-\\d{3}[-]\\d{7}");
-                    if (count <= pattern) {
+                    if (count <= pattern ) {
 
                         btn_in.setVisibility(View.INVISIBLE);
                         btn_out.setVisibility(View.INVISIBLE);
+                        btn_add.setVisibility(View.INVISIBLE);
+                        btn_pur.setVisibility(View.INVISIBLE);
                         fetchVendorDataForSpinner();
                     } else {
                         Log.d("", "Logcess52 " + "0");

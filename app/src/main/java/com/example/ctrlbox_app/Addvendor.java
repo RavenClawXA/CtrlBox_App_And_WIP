@@ -33,7 +33,8 @@ public class Addvendor extends AppCompatActivity {
         add_btn = findViewById(R.id.addvendor_btn);
         bbtn = findViewById(R.id.bbtn);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://49.0.65.4:3002/ctrl/")
+        //Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
