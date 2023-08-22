@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         btn_pur = findViewById(R.id.btn_pur);
         btn_pur.setBackground(getDrawable(R.drawable.button_color));
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://49.0.65.4:3002/ctrl/")
-        //Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
+        //Retrofit retrofit = new Retrofit.Builder().baseUrl("http://49.0.65.4:3002/ctrl/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.10.166:5000/ctrl/")
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
                         btn_in.setVisibility(View.INVISIBLE);
                         btn_out.setVisibility(View.INVISIBLE);
-                        btn_add.setVisibility(View.INVISIBLE);
+                        btn_add.setVisibility(View.VISIBLE);
                         btn_pur.setVisibility(View.INVISIBLE);
                         fetchVendorDataForSpinner();
                     } else {
@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // After the background task is done, update UI on the main thread
                 v.post(() -> {
-                    addLogBox(txt_boxid.getText().toString(), "CYF", "CYF", "Reg");
+                    addLogBox(txt_boxid.getText().toString(), "CYF", "", "Reg");
                     btn_add.setVisibility(View.INVISIBLE);
                     btn_pur.setVisibility(View.VISIBLE);
                 });
